@@ -1,3 +1,5 @@
+package hello.spring.fristpjt;
+
 import hello.spring.fristpjt.member.Grade;
 import hello.spring.fristpjt.member.Member;
 import hello.spring.fristpjt.member.MemberService;
