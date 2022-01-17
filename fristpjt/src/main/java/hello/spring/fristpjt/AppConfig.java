@@ -2,6 +2,7 @@ package hello.spring.fristpjt;
 
 import hello.spring.fristpjt.discount.DiscountPolicy;
 import hello.spring.fristpjt.discount.FixDiscountPolicy;
+import hello.spring.fristpjt.discount.RateDiscountPolicy;
 import hello.spring.fristpjt.member.MemberRepository;
 import hello.spring.fristpjt.member.MemberService;
 import hello.spring.fristpjt.member.MemberServiceImpl;
@@ -24,7 +25,8 @@ public class AppConfig {
     }
 
     private DiscountPolicy discountPolicy() {
-        return new FixDiscountPolicy();
+        //return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 
 }
