@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.Map;
+
 public class ClassTypeTest {
 
 
@@ -17,6 +19,11 @@ public class ClassTypeTest {
         ApplicationContext ac = new AnnotationConfigApplicationContext(TestConfigWithConfig.class);
         TestConfigWithConfig bean = ac.getBean(TestConfigWithConfig.class);
         System.out.println("bean = " + bean.getClass());
+        Map<String, TestConfigWithConfig> beansOfType = ac.getBeansOfType(TestConfigWithConfig.class);
+        for (String s : beansOfType.keySet()) {
+            System.out.println(s);
+        }
+        //System.out.println(ac.getBeanNamesForType(TestConfigWithConfig.class));
     }
 
 
