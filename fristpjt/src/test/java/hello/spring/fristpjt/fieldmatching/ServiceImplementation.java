@@ -9,8 +9,7 @@ class ServiceImplementation implements ServiceInterface {
     private final FunctionInterface functionInterface;
 
     @Autowired
-    public ServiceImplementation(@Qualifier("funcImplementationAAA")
-                                             FunctionInterface funcImplementation) {
+    public ServiceImplementation(FunctionInterface funcImplementation) {
         this.functionInterface = funcImplementation;
     }
 
