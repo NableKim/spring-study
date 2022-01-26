@@ -1,10 +1,9 @@
 package hello.spring.fristpjt.order;
 
+import hello.spring.fristpjt.annotation.MainDiscountPolicy;
 import hello.spring.fristpjt.discount.DiscountPolicy;
-import hello.spring.fristpjt.discount.FixDiscountPolicy;
 import hello.spring.fristpjt.member.Member;
 import hello.spring.fristpjt.member.MemberRepository;
-import hello.spring.fristpjt.member.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +14,8 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository,
+                            @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
