@@ -1,9 +1,6 @@
 package hello.spring.fristpjt.lifecycle;
 
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-
-public class NetworkClient implements InitializingBean, DisposableBean {
+public class NetworkClient {
 
     private String url;
 
@@ -29,14 +26,12 @@ public class NetworkClient implements InitializingBean, DisposableBean {
         System.out.println("disconnect : " + url);
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
+    public void init(){
         connect();
         call("초기화합니다");
     }
 
-    @Override
-    public void destroy() throws Exception {
+    public void destroy() {
         disconnect();
     }
 }
