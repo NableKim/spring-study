@@ -1,5 +1,8 @@
 package hello.spring.fristpjt.lifecycle;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class NetworkClient {
 
     private String url;
@@ -26,11 +29,13 @@ public class NetworkClient {
         System.out.println("disconnect : " + url);
     }
 
+    @PostConstruct
     public void init(){
         connect();
         call("초기화합니다");
     }
 
+    @PreDestroy
     public void destroy() {
         disconnect();
     }
