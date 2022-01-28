@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.inject.Provider;
 
 public class MakeNewPrototypeWheneverUsingTest {
     @Test
@@ -34,10 +35,11 @@ public class MakeNewPrototypeWheneverUsingTest {
     @Scope("singleton")
     static class SingletonBean {
 
-        private final ObjectProvider<ProtoTypeBean> protoTypeBeanObjectProvider;
+        //private final ObjectProvider<ProtoTypeBean> protoTypeBeanObjectProvider;
+        private final Provider<ProtoTypeBean> protoTypeBeanObjectProvider;
 
         @Autowired
-        SingletonBean(ObjectProvider<ProtoTypeBean> protoTypeBeanObjectProvider) {
+        SingletonBean(Provider<ProtoTypeBean> protoTypeBeanObjectProvider) {
             this.protoTypeBeanObjectProvider = protoTypeBeanObjectProvider;
         }
 
@@ -52,7 +54,8 @@ public class MakeNewPrototypeWheneverUsingTest {
         }
 
         public int single_logic() {
-            ProtoTypeBean protoTypeBean = protoTypeBeanObjectProvider.getObject();
+            //ProtoTypeBean protoTypeBean = protoTypeBeanObjectProvider.getObject();
+            ProtoTypeBean protoTypeBean = protoTypeBeanObjectProvider.get();
             protoTypeBean.addCount();
             return protoTypeBean.getCount();
         }
