@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 public class LogDemoController {
 
     private final LogDemoService logDemoService;
-    private final ObjectProvider<MyLogger> myLoggerObjectProvider;
+    private final MyLogger myLogger;
 
     @RequestMapping("log-demo")
     @ResponseBody
@@ -23,7 +23,7 @@ public class LogDemoController {
         String requestURL = request.getRequestURL().toString();
         
         // Log 찍기
-        MyLogger myLogger = myLoggerObjectProvider.getObject();
+        //MyLogger myLogger = myLoggerObjectProvider.getObject();
         myLogger.setRequestURL(requestURL);
         myLogger.log("controller test");
         
