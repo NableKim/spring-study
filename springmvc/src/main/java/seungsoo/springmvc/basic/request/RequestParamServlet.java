@@ -31,5 +31,7 @@ public class RequestParamServlet extends HttpServlet {
         }
         System.out.println("[복수 파라미터 조회] - end");
         System.out.println();
+
+        response.getWriter().write("ok");
     }
 }
