@@ -14,7 +14,7 @@ public class RequestParamServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("[전체 파라미터 조회] - start");
         request.getParameterNames().asIterator()
-                        .forEachRemaining(parameterName -> System.out.println("parameterName" +  "=" + request.getParameter(parameterName)));
+                        .forEachRemaining(parameterName -> System.out.println(parameterName +  "=" + request.getParameter(parameterName)));
         System.out.println("[전체 파라미터 조회] - end");
         System.out.println();
 
