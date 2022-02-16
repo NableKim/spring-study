@@ -1,9 +1,9 @@
-package seungsoo.springmvc.web;
+package seungsoo.springmvc.web.frontcontroller.v1;
 
-import seungsoo.springmvc.web.frontcontroller.v1.MemberFormControllerV1;
+import seungsoo.springmvc.web.frontcontroller.v1.controller.MemberFormControllerV1;
 import seungsoo.springmvc.web.frontcontroller.v1.ControllerV1;
-import seungsoo.springmvc.web.frontcontroller.v1.MemberListControllerV1;
-import seungsoo.springmvc.web.frontcontroller.v1.MemberSaveControllerV1;
+import seungsoo.springmvc.web.frontcontroller.v1.controller.MemberListControllerV1;
+import seungsoo.springmvc.web.frontcontroller.v1.controller.MemberSaveControllerV1;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

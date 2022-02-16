@@ -1,7 +1,8 @@
-package seungsoo.springmvc.web.frontcontroller.v1;
+package seungsoo.springmvc.web.frontcontroller.v1.controller;
 
 import seungsoo.springmvc.domain.Member;
 import seungsoo.springmvc.domain.MemberRepository;
+import seungsoo.springmvc.web.frontcontroller.v1.ControllerV1;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
