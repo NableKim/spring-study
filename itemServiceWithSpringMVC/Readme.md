@@ -18,26 +18,26 @@
 각 페이지에서 버튼을 눌러 새로운 상품 정보 등록 페이지로 이동하거나, 정보 등록하거나, 정보 수정하거나 등의 행위를 할 수 있다.
 Controller에서 HTTP 요청 처리 로직을 수행한 이후 Thymeleaf 템플릿 뷰 엔진을 사용해 응답할 HTML을 동적으로 생성하였다.
 추가로 상품 정보 등록, 상품 정보 수정의 경우 Post 요청 이후 새로고침이 반복될 때마다 똑같은 Post 요청이 전송되는 것을 방지하기 위해 PRG 방식을 적용하였다.
-![systemflow](./readme_img/systemflow.png)
+![systemflow](./readme_img/systemflow.PNG)
 
 
 ### 페이지별 이미지
 
 #### All Item Info Page
 - 시스템에 등록된 모든 상품 정보를 확인할 수 있다.
-![mainpage](./readme_img/mainpage.png)
+![mainpage](./readme_img/mainpage.PNG)
 
 
 #### Page for Item Info Registration
 - 시스템에 등록된 모든 상품 정보를 확인할 수 있다.
-![registrationpage](./readme_img/registrationpage.png)
+![registrationpage](./readme_img/registrationpage.PNG)
 
 
 #### Specific Item Info Page
 - 선택한 특정 상품의 정보를 확인할 수 있다.
-![detailpage](./readme_img/detailpage.png)
+![detailpage](./readme_img/detailpage.PNG)
 
 
 #### Page for Item Info Modification
 - 선택한 특정 상품의 정보를 수정할 수 있다.
-![modifypage](./readme_img/modifypage.png)
+![modifypage](./readme_img/modifypage.PNG)
