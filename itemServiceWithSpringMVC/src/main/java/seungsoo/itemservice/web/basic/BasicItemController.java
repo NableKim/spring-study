@@ -3,9 +3,8 @@ package seungsoo.itemservice.web.basic;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import seungsoo.itemservice.domain.Item;
 import seungsoo.itemservice.domain.ItemRepository;
 
@@ -44,11 +43,54 @@ public class BasicItemController {
         itemRepository.save(new Item("itemB", 20000, 20));
     }
 
-    @GetMapping("basic/items/{itemId}")
+    /**
+     * 특정 Item의 정보를 보여줄 요청 처리
+     */
+    @GetMapping("/basic/items/{itemId}")
     public String item(@PathVariable Long itemId, Model model) {
         Item findItem = itemRepository.findById(itemId);
         model.addAttribute("item", findItem);
         return "basic/item";
     }
 
+    /**
+     * Item을 새로 등록하기 위한 등록폼 요청 처리
+     */
+    @GetMapping("/basic/items/add")
+    public String getAddForm() {
+        return "basic/addForm";
+    }
+    
+    /**
+     * Item을 새로 등록 요청 처리
+     * 요청 처리 후 basic/item/{itemId}로 리다이렉트
+     */
+    @PostMapping("/basic/items/add")
+    public String save(@ModelAttribute Item item, RedirectAttributes redirectAttributes) {
+        Item savedItem = itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", savedItem.getId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/basic/items/{itemId}";
+    }
+
+
+    /**
+     * 특정 Item 정보 수정 페이지 요청
+     */
+    @GetMapping("/basic/items/{itemId}/edit")
+    public String getEditForm(@PathVariable Long itemId, Model model) {
+        Item findItem = itemRepository.findById(itemId);
+        model.addAttribute("item", findItem);
+        return "basic/editForm";
+    }
+
+    /**
+     * 특정 Item 정보 수정 요청
+     * 요청 처리 후 basic/item/{itemId}로 리다이렉트
+     */
+    @PostMapping("/basic/items/{itemId}/edit")
+    public String edit(@PathVariable Long itemId, @ModelAttribute Item item) {
+        itemRepository.update(itemId, item);
+        return "redirect:/basic/items/{itemId}";
+    }
 }
