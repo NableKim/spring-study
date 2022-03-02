@@ -92,6 +92,12 @@ public class BasicController {
         return "basic/condition";
     }
 
+    @GetMapping("/block")
+    public String block(Model model) {
+        addUser(model);
+        return "basic/block";
+    }
+
     private void addUser(Model model) {
         List<User> userList = new ArrayList<>();
         userList.add(new User("userA", 10));
