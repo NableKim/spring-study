@@ -80,6 +80,20 @@ public class BasicController {
         return "basic/operation";
     }
 
+    @GetMapping("/each")
+    public String each(Model model) {
+        addUser(model);
+        return "basic/each";
+    }
+
+    private void addUser(Model model) {
+        List<User> userList = new ArrayList<>();
+        userList.add(new User("userA", 10));
+        userList.add(new User("userB", 20));
+        userList.add(new User("userC", 30));
+        model.addAttribute("users", userList);
+    }
+
     @Component("helloBean")
     static class helloBean {
         public String hello(String param) {
