@@ -16,4 +16,11 @@ public class BasicController {
         return "basic/text-basic";
     }
 
+    // 문자열 출력 테스트
+    @GetMapping("/text-unescaped")
+    public String textUnescaped(Model model) {
+        model.addAttribute("data", "Hello <b>Spring!</b>");
+        return "basic/text-unescaped";
+    }
+
 }
