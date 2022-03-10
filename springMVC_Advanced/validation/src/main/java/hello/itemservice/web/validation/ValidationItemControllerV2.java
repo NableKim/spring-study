@@ -50,11 +50,12 @@ public class ValidationItemControllerV2 {
                           RedirectAttributes redirectAttributes) {
 
         log.info("item={}", item);
+        //log.info("item={}", bindingResult);
 
         // 상품 이름이 미입력된 경우
         if(!StringUtils.hasText(item.getItemName()))
             bindingResult.addError(new FieldError("item", "itemName", "상품 이름은 필수입니다."));
-        
+
         // 가격이 미입력되었거나 값의 범위가 올바르지 않은 경우
         if(item.getPrice() == null || item.getPrice()<1000 || item.getPrice() > 1000000)
             bindingResult.addError(new FieldError("item", "price", "가격은 1,000 ~ 1,000,000 까지 허용됩니다."));
